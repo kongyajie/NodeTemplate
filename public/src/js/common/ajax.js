@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const ajax = {
   // PREFIX: '/annualSummary2018/api', // 线上使用
-  PREFIX: '/api', // 本地使用
+  PREFIX: 'http://localhost:3001/api', // 本地使用
   HEADER: Utils.getAuthor() || 'llbc',
   requestingApi: new Set(),
   changeHeader(header) {
@@ -90,7 +90,7 @@ const ajax = {
       //     }
       //   }
       // }
-      prefix = `/biz`
+      prefix = ``
       url = `${this.PREFIX}${prefix}${params.url}`;
       params.url = url;
     }
@@ -103,9 +103,9 @@ const ajax = {
       }
     }
     const header = {
-      author: this.HEADER,
-      channel: 'c',
-      authorization: Utils.getCookie('_token')
+      // author: this.HEADER,
+      // channel: 'c',
+      // authorization: Utils.getCookie('_token')
     };
     const defaultParam = {
       headers: header,

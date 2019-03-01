@@ -18,60 +18,17 @@ function  getDomain() {
 }
 
 const Request = {
-  Common: {
-    dict() {
-      return Ajax.getJson('/lieluobo-exhibition/data/dict.json', {}, {crossDomain: true, customError: true});
+  todo: {
+    getList() {
+      return Ajax.get(`/todo/queryAll`, {});
     },
-    hotDict() {
-      return Ajax.getJson('/lieluobo-exhibition/data/hotDict.json', {}, {crossDomain: true, customError: true});
+    add(params) {
+      return Ajax.postJson(`/todo/create`, params);
     },
-    location() {
-      return Ajax.getJson('/lieluobo-exhibition/data/location.json', {}, {crossDomain: true, customError: true});
-    },
-    env() {
-      return Ajax.get('/c/envs', {}, { noTip: true });
-    },
-    qiniu() {
-      return Ajax.get('/common/qiniu/token', {}, { noTip: true });
-    },
-  },
-  WeixinBind: {
-    getOpenId(params) {
-      return Ajax.get('/weChat/openId', params);
-    },
-    bind(params) {
-      return Ajax.postJson('/weChat/bind', params);
-    },
-    isBinded(params) {
-      return Ajax.get('/weChat/hasOpenId', params);
-    },
-    unbind(params) {
-      return Ajax.postJson('/weChat/unbind', params);
-    },
-    bindWithToken(params) {
-      return Ajax.postJson('/weChat/bindWithToken', params);
+    remove(id) {
+      return Ajax.postJson(`/todo/delete/${id}`);
     }
   },
-  Login: {
-    // 获取手机验证码
-    sms(params) {
-      return Ajax.get('/annualReport/sms', params);
-    },
-    // 年度报告登录接口
-    login(params) {
-      return Ajax.postJson('/annualReport/login', params);
-    },
-    // 通过微信code获得年度报表的秘钥
-    getKeyByWechatCode(params) {
-      return Ajax.get(`/annualReport/getKeyByWechatCode`, params);
-    }
-  },
-  Annual: {
-    getAnnualData(params) {
-      return Ajax.get(`/annualReport/2018`, params)
-    }
-  },
-  
 };
 
 module.exports = Request;
