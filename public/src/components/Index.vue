@@ -1,4 +1,7 @@
 <style lang='less'>
+  ul li {
+      list-style: none;
+  }
   .main {
       min-height: 20px;
       padding: 19px;
