@@ -62,3 +62,10 @@ config 文件
 #### 正常使用mysql2处理数据
 
 #### 事务的处理
+
+安装完成后：
+mysql -u root -p
+输入安装结束时设置的密码，如111111
+create database test;
+use test;
+create table todoList(id int auto_increment primary key, title char(30) not null);
